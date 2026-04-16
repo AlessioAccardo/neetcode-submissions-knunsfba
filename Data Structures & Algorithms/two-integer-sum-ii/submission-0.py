@@ -1,0 +1,18 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l, r = 0, len(numbers)-1
+
+        while l < r:
+            summ = numbers[l] + numbers[r]
+            if summ == target:
+                return [l+1, r+1]
+            if summ < target:
+                l+=1
+                while l < r and numbers[l-1] == numbers[l]:
+                    l+=1
+            if summ > target:
+                r-=1
+                while l < r and numbers[r+1] == numbers[r]:
+                    r-=1
+            
+            
